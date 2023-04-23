@@ -14,7 +14,7 @@ cd roadside-assistance/
 export JAVA_HOME=<Directory path to Java Home installation>
 - Please note that this project requires Java 1.8 (it is tested using corretto-1.8.0_372 Java version)
 
-#### Run maven test from project home directory
+#### Run maven test from project home directory (use mvnw or mvnw.cmd based on the machine OS)
 ./mvnw clean test
 
 - Please note that due to time constraints not all classes are implemented and all test cases are not written for all classes.
