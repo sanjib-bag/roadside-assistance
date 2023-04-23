@@ -30,7 +30,7 @@ public class RoadsideAssistanceRepositoryImpl implements RoadsideAssistanceRepos
         assistantEntityDataStore.put(assistantEntity.getAssistantId(), assistantEntity);
 
         Set<AssistantEntiy> assistants = assistantEntitiesDataStoreByZip.getOrDefault(assistantEntity.getAssistantLocation()
-                                                                                    .getZipCode(), new HashSet<>());
+                .getZipCode(), new HashSet<>());
         assistants.add(assistantEntity);
         assistantEntitiesDataStoreByZip.put(assistantEntity.getAssistantLocation().getZipCode(), assistants);
     }
@@ -51,7 +51,7 @@ public class RoadsideAssistanceRepositoryImpl implements RoadsideAssistanceRepos
         reservationDataStore.put("Assistant: " + reserveCustomerAssistant.getAssistantEntiy().getAssistantId(), reserveCustomerAssistant);
 
         Optional<AssistantEntiy> assistantEntiyOptional = getAssistant(reserveCustomerAssistant.getAssistantEntiy()
-                                                        .getAssistantId());
+                .getAssistantId());
         assistantEntiyOptional.ifPresent(assistantEntiy -> assistantEntiy.setReserved(true));
     }
 

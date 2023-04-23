@@ -144,16 +144,16 @@ class RoadsideAssistanceServiceImplTest {
         assistantLocation.setLongitude(10);
         assistantLocation.setZipCode("11111");
 
-        AssistantEntiy beforeUpdate  = roadsideAssistanceRepository.getAssistant(new BigInteger("1")).get();
+        AssistantEntiy beforeUpdate = roadsideAssistanceRepository.getAssistant(new BigInteger("1")).get();
 
         assertNull(beforeUpdate.getAssistantLocation());
 
         roadsideAssistanceService.updateAssistantLocation(assistant, assistantLocation);
 
-        AssistantEntiy afterUpdate  = roadsideAssistanceRepository.getAssistant(new BigInteger("1")).get();
+        AssistantEntiy afterUpdate = roadsideAssistanceRepository.getAssistant(new BigInteger("1")).get();
 
-        assertEquals(assistantLocation. getLatitude(), afterUpdate.getAssistantLocation().getLatitude());
-        assertEquals(assistantLocation. getLongitude(), afterUpdate.getAssistantLocation().getLongitude());
+        assertEquals(assistantLocation.getLatitude(), afterUpdate.getAssistantLocation().getLatitude());
+        assertEquals(assistantLocation.getLongitude(), afterUpdate.getAssistantLocation().getLongitude());
     }
 
     @Test
@@ -165,16 +165,16 @@ class RoadsideAssistanceServiceImplTest {
         assistantLocation.setLatitude(12);
         assistantLocation.setLongitude(10);
 
-        AssistantEntiy beforeUpdate  = roadsideAssistanceRepository.getAssistant(new BigInteger("2")).get();
+        AssistantEntiy beforeUpdate = roadsideAssistanceRepository.getAssistant(new BigInteger("2")).get();
 
         assertNull(beforeUpdate.getAssistantLocation());
 
         roadsideAssistanceService.updateAssistantLocation(assistant, assistantLocation);
 
-        AssistantEntiy afterUpdate  = roadsideAssistanceRepository.getAssistant(new BigInteger("2")).get();
+        AssistantEntiy afterUpdate = roadsideAssistanceRepository.getAssistant(new BigInteger("2")).get();
 
-        assertEquals(assistantLocation. getLatitude(), afterUpdate.getAssistantLocation().getLatitude());
-        assertEquals(assistantLocation. getLongitude(), afterUpdate.getAssistantLocation().getLongitude());
+        assertEquals(assistantLocation.getLatitude(), afterUpdate.getAssistantLocation().getLatitude());
+        assertEquals(assistantLocation.getLongitude(), afterUpdate.getAssistantLocation().getLongitude());
     }
 
     @Test
@@ -355,7 +355,7 @@ class RoadsideAssistanceServiceImplTest {
     void reserveAssistant_all_assistant_reserved() {
 
         //Exhausts all available assistants by reserving them
-        for(int i = 0; i < 5; i++){
+        for (int i = 0; i < 5; i++) {
             Customer customer = new Customer();
             customer.setCustomerName("Customer" + i);
             customer.setCustomerId(new BigInteger(String.valueOf(i)));
@@ -368,7 +368,7 @@ class RoadsideAssistanceServiceImplTest {
             Optional<Assistant> assistantOptional = roadsideAssistanceService.reserveAssistant(customer, customerLocation);
 
             assertTrue(assistantOptional.isPresent());
-            assertEquals("Assistant1"+i, assistantOptional.get().getAssistantName());
+            assertEquals("Assistant1" + i, assistantOptional.get().getAssistantName());
             assertTrue(assistantOptional.get().isReserved());
         }
 

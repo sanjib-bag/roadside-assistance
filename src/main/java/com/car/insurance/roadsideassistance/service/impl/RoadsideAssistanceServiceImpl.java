@@ -31,7 +31,8 @@ public class RoadsideAssistanceServiceImpl implements RoadsideAssistanceService 
 
     /**
      * Updates Assistants location.
-     * @param assistant represents the roadside assistance service provider
+     *
+     * @param assistant         represents the roadside assistance service provider
      * @param assistantLocation represents the location of the roadside assistant
      */
     @Override
@@ -55,8 +56,9 @@ public class RoadsideAssistanceServiceImpl implements RoadsideAssistanceService 
 
     /**
      * Returns all nearest assistant locations. If limit is not positive it will return all assistants
+     *
      * @param geolocation - geolocation from which to search for assistants
-     * @param limit - the number of assistants to return
+     * @param limit       - the number of assistants to return
      * @return SortedSet<Assistant>
      */
     @Override
@@ -91,7 +93,8 @@ public class RoadsideAssistanceServiceImpl implements RoadsideAssistanceService 
 
     /**
      * Reserves nearest available assistants for the customer
-     * @param customer - Represents a Geico customer
+     *
+     * @param customer         - Represents a Geico customer
      * @param customerLocation - Location of the customer
      * @return Optional<Assistant>
      */
@@ -114,7 +117,8 @@ public class RoadsideAssistanceServiceImpl implements RoadsideAssistanceService 
 
     /**
      * Releases the customer reservation
-     * @param customer - Represents a Geico customer
+     *
+     * @param customer  - Represents a Geico customer
      * @param assistant - An assistant that was previously reserved by the customer
      */
     @Override
@@ -126,7 +130,7 @@ public class RoadsideAssistanceServiceImpl implements RoadsideAssistanceService 
 
         Optional<ReserveCustomerAssistant> reserveCustomerAssistantOptional = roadsideAssistanceRepository.findReservation(customerEntity, assistantEntiy);
 
-        if(!reserveCustomerAssistantOptional.isPresent()) {
+        if (!reserveCustomerAssistantOptional.isPresent()) {
             throw new ValidationException("Reservation not found");
         }
 
@@ -143,6 +147,7 @@ public class RoadsideAssistanceServiceImpl implements RoadsideAssistanceService 
 
     /**
      * Validate release assistant input
+     *
      * @param customer
      * @param assistant
      */
@@ -153,6 +158,7 @@ public class RoadsideAssistanceServiceImpl implements RoadsideAssistanceService 
 
     /**
      * Validate assistant
+     *
      * @param assistant
      */
     private void validateAssistant(Assistant assistant) {
@@ -163,6 +169,7 @@ public class RoadsideAssistanceServiceImpl implements RoadsideAssistanceService 
 
     /**
      * Validate customer
+     *
      * @param customer
      */
     private void validateCustomer(Customer customer) {
@@ -173,6 +180,7 @@ public class RoadsideAssistanceServiceImpl implements RoadsideAssistanceService 
 
     /**
      * Validate update location inputs
+     *
      * @param assistant
      * @param assistantLocation
      */
@@ -183,6 +191,7 @@ public class RoadsideAssistanceServiceImpl implements RoadsideAssistanceService 
 
     /**
      * Validate geo location
+     *
      * @param assistantLocation
      */
     private void validateGeoLocation(Geolocation assistantLocation) {
@@ -193,6 +202,7 @@ public class RoadsideAssistanceServiceImpl implements RoadsideAssistanceService 
 
     /**
      * Validate reservation input
+     *
      * @param customer
      * @param customerLocation
      */
@@ -203,6 +213,7 @@ public class RoadsideAssistanceServiceImpl implements RoadsideAssistanceService 
 
     /**
      * Valiadte zip code
+     *
      * @param geolocation
      */
     private void validateZipCode(Geolocation geolocation) {
@@ -213,6 +224,7 @@ public class RoadsideAssistanceServiceImpl implements RoadsideAssistanceService 
 
     /**
      * Assigns assistant to customer
+     *
      * @param customer
      * @param assistant
      */
@@ -234,6 +246,7 @@ public class RoadsideAssistanceServiceImpl implements RoadsideAssistanceService 
 
     /**
      * Helper method to compare distances between two locations
+     *
      * @param baseLatitude
      * @param baseLongitude
      * @param latitude1
